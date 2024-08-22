@@ -15,9 +15,9 @@ mkdir -p ${PWD}/output/gcc${GCC}
 # Build
 #
 ###############################################################################
-#export CT_PREFIX="${PWD}/output/gcc${GCC}"
-#DEFCONFIG=x86_64-unknown-linux-gnu_gcc${GCC} ct-ng defconfig
-#ct-ng -j$(nproc) build
+export CT_PREFIX="${PWD}/output/gcc${GCC}"
+DEFCONFIG=x86_64-unknown-linux-gnu_gcc${GCC} ct-ng defconfig
+ct-ng -j$(nproc) build
 
 
 ###############################################################################
