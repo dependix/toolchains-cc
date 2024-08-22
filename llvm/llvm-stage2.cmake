@@ -1,0 +1,57 @@
+# This file sets up a CMakeCache for the second stage of a simple distribution
+# bootstrap build.
+
+set(LLVM_ENABLE_PROJECTS "clang;clang-tools-extra;lld" CACHE STRING "")
+set(LLVM_ENABLE_RUNTIMES "compiler-rt;libcxx;libcxxabi;libunwind" CACHE STRING "")
+
+set(LLVM_TARGETS_TO_BUILD X86 CACHE STRING "")
+set(COMPILER_RT_DEFAULT_TARGET_ONLY ON CACHE BOOL "")
+
+set(CMAKE_BUILD_TYPE RelWithDebInfo CACHE STRING "")
+set(CMAKE_C_FLAGS_RELWITHDEBINFO "-O3 -gline-tables-only -DNDEBUG" CACHE STRING "")
+set(CMAKE_CXX_FLAGS_RELWITHDEBINFO "-O3 -gline-tables-only -DNDEBUG" CACHE STRING "")
+
+set(CLANG_DEFAULT_CXX_STDLIB libc++ CACHE STRING "")
+set(CLANG_DEFAULT_RTLIB compiler-rt CACHE STRING "")
+set(CLANG_DEFAULT_UNWINDLIB libunwind CACHE STRING "")
+set(LIBCXXABI_USE_COMPILER_RT ON CACHE BOOL "")
+set(LIBCXXABI_USE_LLVM_UNWINDER ON CACHE BOOL "")
+set(LIBCXXABI_ENABLE_STATIC_UNWINDER ON CACHE BOOL "")
+set(LIBCXX_USE_COMPILER_RT ON CACHE BOOL "")
+set(LIBCXX_USE_LLVM_UNWINDER ON CACHE BOOL "")
+set(LIBUNWIND_USE_COMPILER_RT ON CACHE BOOL "")
+set(LLVM_BUILD_EXTERNAL_COMPILER_RT ON CACHE BOOL "")
+set(LLVM_BUILD_LLVM_DYLIB ON CACHE BOOL "")
+set(LLVM_ENABLE_LIBCXX ON CACHE BOOL "")
+set(LLVM_ENABLE_PER_TARGET_RUNTIME_DIR OFF CACHE BOOL "")
+set(LLVM_ENABLE_PIC ON CACHE BOOL "")
+set(LLVM_ENABLE_TERMINFO OFF CACHE BOOL "")
+
+set(LLVM_BUILD_TOOLS ON CACHE BOOL "")
+
+# setup toolchain
+set(LLVM_INSTALL_TOOLCHAIN_ONLY ON CACHE BOOL "")
+set(LLVM_TOOLCHAIN_TOOLS
+  dsymutil
+  llvm-ar
+  llvm-cov
+  llvm-dwarfdump
+  llvm-profdata
+  llvm-objcopy
+  llvm-objdump
+  llvm-nm
+  llvm-size
+  lld
+  CACHE STRING "")
+
+set(LLVM_DISTRIBUTION_COMPONENTS
+  clang
+  LTO
+  clang-format
+  clang-resource-headers
+  clang-tidy
+  builtins
+  runtimes
+  unwind
+  ${LLVM_TOOLCHAIN_TOOLS}
+  CACHE STRING "")
