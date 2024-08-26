@@ -17,9 +17,10 @@ The system running those toolchains and binaries compiled by those toolchains sh
 
 - [crosstool-ng](https://github.com/crosstool-ng/crosstool-ng) a211eaefd11d8e91fdf105d63caa72dd98af3a9f
 
-## Build
+## Build GCC
 
 ```
+cd gcc
 export GCC={12,13,14}
 
 mkdir ${PWD}/output/gcc${GCC}
