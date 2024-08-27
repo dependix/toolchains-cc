@@ -33,6 +33,8 @@ DEFCONFIG=x86_64-unknown-linux-gnu_gcc${GCC}
 ## Build LLVM
 ```
 cd llvm
+export LLVM={17.0.6,18.1.8}
+
 ./01_linux.sh
 ./02_glibc.sh
 ./03_build.sh
